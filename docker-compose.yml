@@ -1,0 +1,8 @@
+version:  '3.8'
+services:
+    php:
+        container_name: attractions-io-app
+        build:
+            context: .
+        volumes:
+            - './app/:/usr/src/app'
