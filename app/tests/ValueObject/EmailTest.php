@@ -22,4 +22,12 @@ class EmailTest extends TestCase
 
         $this->assertTrue($email->isEqualTo(new Email('foo@example.com')));
     }
+
+    public function test_it_throws_exception_when_input_above_max_length()
+    {
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('Max length is 254 characters');
+
+        $email = new Email(str_pad('', 255, 'a'));
+    }
 }

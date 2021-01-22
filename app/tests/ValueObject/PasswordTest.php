@@ -22,4 +22,12 @@ class PasswordTest extends TestCase
 
         $this->assertTrue($password->isEqualTo(new Password('1234')));
     }
+
+    public function test_it_throws_exception_when_input_above_max_length()
+    {
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('Max length is 32 characters');
+
+        $password = new Password(str_pad('', 33, 'a'));
+    }
 }

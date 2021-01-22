@@ -29,4 +29,13 @@ class DateOfBirthTest extends TestCase
 
         $this->assertTrue($dob1->isEqualTo($dob2));
     }
+
+    public function test_it_throws_exception_when_input_below_min_age()
+    {
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('Minimum age is 13 years old');
+
+        $dt = new DateTimeImmutable('-13 years + 1 day');
+        $dob = new DateOfBirth($dt);
+    }
 }

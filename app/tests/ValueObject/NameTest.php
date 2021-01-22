@@ -22,4 +22,12 @@ class NameTest extends TestCase
 
         $this->assertTrue($name->isEqualTo(new Name('Foo')));
     }
+
+    public function test_it_throws_exception_when_input_above_max_length()
+    {
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('Max length is 32 characters');
+
+        $name = new Name(str_pad('', 33, 'a'));
+    }
 }
