@@ -42,7 +42,6 @@ class DateOfBirth extends AbstractSingleValueObject
             return false;
         }
 
-        // Day of the year is the appropriate resolution for date of birth
         return $valueObject->getValue()->setTimezone(new DateTimeZone('UTC')) == $this->getValue();
     }
 
