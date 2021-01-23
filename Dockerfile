@@ -2,8 +2,7 @@ FROM php:8.0-fpm
 
 LABEL name="attractions-io-app"
 
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt-get update && \
+RUN apt-get update && \
     apt-get install -y \
     libzip-dev \
     unzip
