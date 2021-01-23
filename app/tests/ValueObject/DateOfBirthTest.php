@@ -10,6 +10,11 @@ use AttractionsIo\Domain\ValueObject\DateOfBirth;
 
 class DateOfBirthTest extends TestCase
 {
+    public static function setUpBeforeClass(): void
+    {
+        date_default_timezone_set('UTC');
+    }
+
     public function test_it_returns_false_when_value_is_not_equal()
     {
         $dt1 = new DateTimeImmutable('-13 years');
@@ -37,5 +42,13 @@ class DateOfBirthTest extends TestCase
 
         $dt = new DateTimeImmutable('-13 years + 1 day');
         $dob = new DateOfBirth($dt);
+    }
+
+    public function test_it_returns_dob_in_years()
+    {
+        $dt = new DateTimeImmutable('-13 years');
+        $dob = new DateOfBirth($dt);
+
+        $this->assertEquals($dob->getAgeInYears(), 13);
     }
 }

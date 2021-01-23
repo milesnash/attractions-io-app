@@ -2,11 +2,15 @@
 
 namespace AttractionsIo\Domain\ValueObject;
 
+use DateInterval;
 use DateTimeZone;
+use RuntimeException;
 use DateTimeImmutable;
 
 class DateOfBirth extends AbstractSingleValueObject
 {
+    private int $ageInYears;
+
     public function __construct(
         protected DateTimeImmutable $value,
     ) {
@@ -22,6 +26,8 @@ class DateOfBirth extends AbstractSingleValueObject
         if ($thirteenYearsAgo < $this->value) {
             throw new RuntimeException('Minimum age is 13 years old');
         }
+
+        $this->ageInYears = $now->format('Y') - $this->value->format('Y');
     }
 
     /**
@@ -38,5 +44,10 @@ class DateOfBirth extends AbstractSingleValueObject
 
         // Day of the year is the appropriate resolution for date of birth
         return $valueObject->getValue()->setTimezone(new DateTimeZone('UTC')) == $this->getValue();
+    }
+
+    public function getAgeInYears(): int
+    {
+        return $this->ageInYears;
     }
 }
