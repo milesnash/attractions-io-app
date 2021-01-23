@@ -20,7 +20,7 @@ $ docker exec -it `docker ps -q -f "name=attractions-io-app"` composer run test
     $ docker-compose down
     ```
 
-1. Remove everthing (images and volume)
+1. Remove everything (images and volume)
     ```bash
     $ docker-compose down --rmi all -v
     ```
