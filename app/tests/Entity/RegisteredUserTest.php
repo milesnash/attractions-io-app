@@ -20,9 +20,6 @@ class RegisteredUserTest extends TestCase
         $datetime = (new DateTimeImmutable('-13 years'))->modify('midnight');
 
         $setterInputs = [
-            'id' => [
-                'typeValue' => 'mytestid',
-            ],
             'firstName' => [
                 'setValue' => new Name('Foo'),
                 'typeValue' => 'Foo',
@@ -69,51 +66,5 @@ class RegisteredUserTest extends TestCase
                 $getValue
             );
         }
-    }
-
-    public function test_it_returns_false_when_entity_is_not_equal()
-    {
-        $registeredUser1 = new RegisteredUser(
-            new Name('Joe'),
-            new Name('Bloggs'),
-            new DateOfBirth(new DateTimeImmutable('-14 years')),
-            new Email('bar@example.com'),
-            new Password('test1234'),
-            '123abc'
-        );
-
-        $registeredUser2 = new RegisteredUser(
-            new Name('Joe'),
-            new Name('Bloggs'),
-            new DateOfBirth(new DateTimeImmutable('-14 years')),
-            new Email('bar@example.com'),
-            new Password('test1234'),
-            '456def'
-        );
-
-        $this->assertFalse($registeredUser1->isEqualTo($registeredUser2));
-    }
-
-    public function test_it_returns_true_when_value_is_equal()
-    {
-        $registeredUser1 = new RegisteredUser(
-            new Name('Joe'),
-            new Name('Bloggs'),
-            new DateOfBirth(new DateTimeImmutable('-14 years')),
-            new Email('bar@example.com'),
-            new Password('test1234'),
-            '123abc'
-        );
-
-        $registeredUser2 = new RegisteredUser(
-            new Name('Joe'),
-            new Name('Bloggs'),
-            new DateOfBirth(new DateTimeImmutable('-14 years')),
-            new Email('bar@example.com'),
-            new Password('test1234'),
-            '123abc'
-        );
-
-        $this->assertTrue($registeredUser1->isEqualTo($registeredUser2));
     }
 }

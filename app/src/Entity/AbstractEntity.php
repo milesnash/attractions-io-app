@@ -27,6 +27,10 @@ abstract class AbstractEntity implements EntityInterface
      */
     public function isEqualTo(EntityInterface $entity): bool
     {
-        return $entity->getId() === $this->getId();
+        return (
+            $entity::class === $this::class
+            &&
+            $entity->getId() === $this->getId()
+        );
     }
 }

@@ -35,7 +35,7 @@ class DateOfBirth extends AbstractSingleValueObject
      */
     public function isEqualTo(ValueObjectInterface $valueObject): bool
     {
-        if (!$valueObject instanceof SingleValueObjectInterface
+        if ($valueObject::class !== $this::class
             ||
             !$valueObject->getValue() instanceof DateTimeImmutable
         ) {

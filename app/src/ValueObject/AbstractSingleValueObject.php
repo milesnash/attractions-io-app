@@ -18,7 +18,7 @@ abstract class AbstractSingleValueObject implements SingleValueObjectInterface
     public function isEqualTo(ValueObjectInterface $valueObject): bool
     {
         return (
-            $valueObject instanceof SingleValueObjectInterface
+            $valueObject::class === $this::class
             &&
             $valueObject->getValue() === $this->getValue()
         );
