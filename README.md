@@ -1,16 +1,16 @@
-# attractions-io-app
+# entity-vs-value-object
 
 ### setup
 
 ```bash
 $ docker-compose up -d
-$ docker exec -it `docker ps -q -f "name=attractions-io-app"` composer install -n
+$ docker exec -it `docker ps -q -f "name=entity-vs-value-object"` composer install -n
 ```
 
 ### run tests
 
 ```bash
-$ docker exec -it `docker ps -q -f "name=attractions-io-app"` composer run test
+$ docker exec -it `docker ps -q -f "name=entity-vs-value-object"` composer run test
 ```
 
 ### teardown

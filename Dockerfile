@@ -1,6 +1,6 @@
 FROM php:8.0-fpm
 
-LABEL name="attractions-io-app"
+LABEL name="entity-vs-value-object"
 
 RUN apt-get update && \
     apt-get install -y \

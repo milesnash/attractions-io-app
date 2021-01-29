@@ -1,7 +1,7 @@
 version:  '3.8'
 services:
     php:
-        container_name: attractions-io-app
+        container_name: entity-vs-value-object
         build:
             context: .
         volumes:

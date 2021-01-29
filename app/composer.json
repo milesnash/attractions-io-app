@@ -1,5 +1,5 @@
 {
-    "name": "attractions-io-app/registered-user-component",
+    "name": "entity-vs-value-object/registered-user-component",
     "type": "library",
     "require-dev": {
         "phpunit/phpunit": "^9.5"
